@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/csshttps://codebeautify.org/css-beautify-minify#2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap");
 :root {
   --plum: #4d3357;
   --purple: #795080;
@@ -497,4 +497,81 @@ h1 em {
     animation-duration: 0.01ms !important;
     transition-duration: 0.01ms !important;
   }
+}
+
+/* A hazy Makati skyline keeps the backdrop tender rather than overpowering. */
+.invitation-shell {
+  isolation: isolate;
+}
+.invitation-shell::before {
+  content: "";
+  position: fixed;
+  z-index: -2;
+  inset: 0;
+  width: auto;
+  height: auto;
+  opacity: 0.16;
+  border: 0;
+  border-radius: 0;
+  background: linear-gradient(
+      rgba(102, 53, 102, 0.28),
+      rgba(248, 222, 239, 0.54)
+    ),
+    url("https://images.unsplash.com/photo-1608632883798-bbb10e85a6a1?auto=format&fit=crop&w=1600&q=80")
+      center/cover;
+  filter: saturate(0.65) blur(1px);
+  transform: scale(1.02);
+}
+.invitation-shell::after {
+  z-index: -1;
+  right: -10rem;
+  bottom: -9rem;
+  left: auto;
+  top: auto;
+  width: 20rem;
+  height: 20rem;
+  border: 1px solid rgba(144, 93, 139, 0.16);
+  border-radius: 50%;
+  box-shadow: -22rem -43rem 0 -1px rgba(255, 255, 255, 0.12);
+}
+.date-plan {
+  background: rgba(248, 235, 246, 0.67);
+  backdrop-filter: blur(5px);
+}
+.activity-reveal {
+  opacity: 0;
+  transform: translateY(10px);
+}
+.view-active .activity-reveal {
+  animation: activityFade 0.62s ease forwards;
+}
+.view-active .activity-reveal:nth-child(1) {
+  animation-delay: 0.28s;
+}
+.view-active .activity-reveal:nth-child(2) {
+  animation-delay: 0.48s;
+}
+.view-active .activity-reveal:nth-child(3) {
+  animation-delay: 0.68s;
+}
+.view-active .activity-reveal:nth-child(4) {
+  animation-delay: 0.88s;
+}
+@keyframes activityFade {
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+.view-active .date-plan p.activity-reveal {
+  animation-delay: 0.2s;
+}
+.view-active .date-plan li:nth-child(1) {
+  animation-delay: 0.42s;
+}
+.view-active .date-plan li:nth-child(2) {
+  animation-delay: 0.64s;
+}
+.view-active .date-plan li:nth-child(3) {
+  animation-delay: 0.86s;
 }
