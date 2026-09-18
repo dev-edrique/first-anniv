@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/csshttps://codebeautify.org/css-beautify-minify#2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap");
 :root {
   --plum: #4d3357;
   --purple: #795080;
@@ -308,6 +308,9 @@ h1 em {
   color: #9b5f84;
   font-size: 0.76rem;
   font-weight: 700;
+}
+.work-card h1 {
+  font-size: clamp(2.2rem, 8.8vw, 3.45rem);
 }
 .countdown-wrap p {
   margin: 0 0 0.7rem;

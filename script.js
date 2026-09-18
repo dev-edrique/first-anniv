@@ -53,7 +53,15 @@ noButton.addEventListener('click', () => {
 	document.getElementById('jokeNote').hidden = false;
 	yesButton.focus();
 });
-yesButton.addEventListener('click', () => showView('celebration'));
+yesButton.addEventListener('click', () => showView('work-check'));
+document.getElementById('workYesButton').addEventListener('click', () => showView('celebration'));
+document.getElementById('workNoButton').addEventListener('click', () => {
+	document.getElementById('openEnvelope').classList.remove('opening');
+	noButton.hidden = false;
+	yesButton.textContent = 'Yes, I am';
+	document.getElementById('jokeNote').hidden = true;
+	showView('welcome');
+});
 
 function getAnniversaryMidnight() {
 	const now = new Date();
