@@ -1,0 +1,500 @@
+@import url("https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Manrope:wght@400;500;600;700&display=swap");
+:root {
+  --plum: #4d3357;
+  --purple: #795080;
+  --mauve: #b7779c;
+  --rose: #f6dfe9;
+  --lavender: #e9d8f0;
+  --cream: #fffafa;
+}
+* {
+  box-sizing: border-box;
+}
+html,
+body {
+  min-height: 100%;
+}
+body {
+  margin: 0;
+  color: var(--plum);
+  font-family: Manrope, sans-serif;
+  overflow-x: hidden;
+  background: radial-gradient(circle at 15% 5%, #fff8fb 0 6%, transparent 31%),
+    radial-gradient(circle at 87% 86%, #d8bee4 0 5%, transparent 31%),
+    linear-gradient(145deg, #f7e2ed, #e9d9f0 54%, #f5e6ed);
+}
+.invitation-shell {
+  position: relative;
+  min-height: 100svh;
+  overflow: hidden;
+}
+.invitation-shell::before,
+.invitation-shell::after {
+  content: "";
+  position: fixed;
+  z-index: -1;
+  width: 20rem;
+  height: 20rem;
+  border: 1px solid rgba(144, 93, 139, 0.16);
+  border-radius: 50%;
+}
+.invitation-shell::before {
+  top: -9rem;
+  left: -8rem;
+}
+.invitation-shell::after {
+  right: -10rem;
+  bottom: -9rem;
+}
+.view {
+  display: grid;
+  min-height: 100svh;
+  place-items: center;
+  padding: 5.4rem 1rem 4rem;
+  opacity: 0;
+  transform: translateY(14px) scale(0.985);
+  transition: opacity 0.55s ease, transform 0.55s ease;
+}
+.view[hidden] {
+  display: none;
+}
+.view.view-active {
+  opacity: 1;
+  transform: none;
+}
+.view-content {
+  position: relative;
+  max-width: 620px;
+}
+h1 {
+  margin: 0;
+  font-family: "DM Serif Display", Georgia, serif;
+  font-size: clamp(2.7rem, 11vw, 4.65rem);
+  font-weight: 400;
+  letter-spacing: -0.035em;
+  line-height: 0.98;
+}
+h1 em {
+  color: #a8628e;
+  font-style: italic;
+}
+.tiny-note,
+.date-note {
+  margin-bottom: 0.6rem;
+  color: #8a5b80;
+  font-size: 0.67rem;
+  font-weight: 700;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+}
+.date-note {
+  margin-bottom: 1.25rem;
+  color: #ae7296;
+  font-size: 0.59rem;
+  letter-spacing: 0.26em;
+}
+.sparkles i {
+  position: fixed;
+  color: rgba(167, 98, 142, 0.58);
+  font-style: normal;
+  font-size: 1.1rem;
+  animation: float 5s ease-in-out infinite;
+}
+.sparkles i:nth-child(1) {
+  left: 11%;
+  top: 18%;
+}
+.sparkles i:nth-child(2) {
+  right: 13%;
+  top: 25%;
+  animation-delay: -1s;
+}
+.sparkles i:nth-child(3) {
+  left: 8%;
+  bottom: 18%;
+  animation-delay: -3s;
+}
+.sparkles i:nth-child(4) {
+  right: 10%;
+  bottom: 17%;
+  animation-delay: -2s;
+}
+.sparkles i:nth-child(5) {
+  right: 31%;
+  top: 10%;
+  animation-delay: -4s;
+}
+@keyframes float {
+  50% {
+    transform: translateY(-10px) rotate(10deg);
+  }
+}
+.envelope-button {
+  display: block;
+  width: 280px;
+  height: 191px;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: pointer;
+  filter: drop-shadow(0 17px 14px rgba(102, 54, 95, 0.19));
+}
+.envelope {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  perspective: 800px;
+}
+.envelope-back,
+.envelope-front,
+.envelope-flap {
+  position: absolute;
+  inset: 0;
+  border-radius: 8px;
+}
+.envelope-back {
+  background: #bd8bad;
+}
+.letter {
+  position: absolute;
+  z-index: 2;
+  top: 10%;
+  left: 8%;
+  display: flex;
+  width: 84%;
+  height: 80%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  border-radius: 4px;
+  background: var(--cream);
+  color: #865a79;
+  transition: transform 0.75s ease 0.18s;
+}
+.letter b {
+  font-family: "DM Serif Display", serif;
+  font-size: 1.75rem;
+  font-weight: 400;
+}
+.letter small {
+  margin-top: 0.35rem;
+  font-size: 0.46rem;
+  font-weight: 700;
+  letter-spacing: 0.13em;
+  text-transform: uppercase;
+}
+.envelope-front {
+  z-index: 4;
+  clip-path: polygon(0 0, 50% 53%, 100% 0, 100% 100%, 0 100%);
+  background: linear-gradient(135deg, #e5b9d0, #b77d9f);
+}
+.envelope-flap {
+  z-index: 5;
+  transform-origin: top;
+  clip-path: polygon(0 0, 100% 0, 50% 53%);
+  background: #d49abb;
+  transition: transform 0.65s ease;
+  backface-visibility: hidden;
+}
+.seal {
+  position: absolute;
+  z-index: 6;
+  top: 41%;
+  left: calc(50% - 18px);
+  display: grid;
+  width: 36px;
+  height: 36px;
+  place-items: center;
+  border-radius: 50%;
+  color: #fff;
+  background: #895474;
+  transition: opacity 0.2s ease;
+}
+.envelope-button:hover .envelope {
+  transform: translateY(-4px);
+}
+.envelope-button.opening .envelope-flap {
+  z-index: 1;
+  transform: rotateX(180deg);
+}
+.envelope-button.opening .letter {
+  transform: translateY(-71px);
+}
+.envelope-button.opening .seal {
+  opacity: 0;
+}
+.tap-note {
+  color: #866a82;
+  font-size: 0.8rem;
+}
+.tap-note span {
+  color: #ad7194;
+  font-size: 1rem;
+}
+.romantic-card {
+  position: relative;
+  width: min(100%, 530px);
+  margin-top: 1.8rem;
+  padding: 2.25rem 1.25rem 1.65rem;
+  border: 1px solid rgba(255, 255, 255, 0.85);
+  border-radius: 28px;
+  background: rgba(255, 251, 252, 0.68);
+  box-shadow: 0 18px 44px rgba(98, 51, 89, 0.12);
+  backdrop-filter: blur(12px);
+}
+.romantic-card::before {
+  content: "";
+  position: absolute;
+  inset: 10px;
+  border: 1px solid rgba(190, 122, 158, 0.19);
+  border-radius: 21px;
+  pointer-events: none;
+}
+.romantic-card h1 {
+  position: relative;
+  z-index: 1;
+  font-size: clamp(2.35rem, 9.5vw, 3.9rem);
+}
+.card-heart {
+  position: relative;
+  z-index: 1;
+  display: inline-grid;
+  width: 42px;
+  height: 42px;
+  margin-bottom: 1rem;
+  place-items: center;
+  border-radius: 50%;
+  color: #fff;
+  background: linear-gradient(135deg, #c78ba7, #8b5a82);
+  box-shadow: 0 5px 13px rgba(128, 68, 109, 0.23);
+}
+.soft-copy {
+  position: relative;
+  z-index: 1;
+  max-width: 310px;
+  margin: 1rem auto 1.45rem;
+  color: #795e75;
+  font-size: 0.88rem;
+  line-height: 1.65;
+}
+.answer-button {
+  position: relative;
+  z-index: 1;
+  min-height: 48px;
+  padding: 0.72rem 1.3rem;
+  border: 0;
+  border-radius: 999px;
+  font-family: Manrope, sans-serif;
+  font-size: 0.8rem;
+  font-weight: 700;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+.answer-button:active {
+  transform: scale(0.97);
+}
+.yes-button {
+  color: #fff;
+  background: linear-gradient(135deg, #a7628d, #704374);
+  box-shadow: 0 9px 18px rgba(121, 65, 108, 0.24);
+}
+.no-button {
+  color: #805773;
+  background: #f1dfe9;
+}
+.joke-note {
+  position: relative;
+  z-index: 1;
+  color: #9b5f84;
+  font-size: 0.76rem;
+  font-weight: 700;
+}
+.countdown-wrap p {
+  margin: 0 0 0.7rem;
+  color: #8b6882;
+  font-size: 0.68rem;
+}
+.countdown {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 0.45rem;
+}
+.countdown div {
+  display: flex;
+  min-width: 47px;
+  flex-direction: column;
+}
+.countdown b {
+  font-family: "DM Serif Display", serif;
+  font-size: 1.65rem;
+  font-weight: 400;
+  line-height: 1;
+}
+.countdown span {
+  margin-top: 0.25rem;
+  color: #966a87;
+  font-size: 0.48rem;
+  font-weight: 700;
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+.countdown i {
+  margin-top: 0.03rem;
+  color: #bb85a5;
+  font-family: "DM Serif Display", serif;
+  font-size: 1.4rem;
+  font-style: normal;
+}
+.celebration-hearts {
+  margin-bottom: 0.6rem;
+  color: #b16a92;
+  font-size: 1.18rem;
+  letter-spacing: 0.32rem;
+}
+.celebration-copy {
+  max-width: 355px;
+  margin-top: 1rem;
+  color: #75566f;
+  font-size: 1rem;
+  line-height: 1.65;
+}
+.where-card {
+  display: flex;
+  width: min(100%, 310px);
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+  padding: 1rem 1.2rem;
+  border: 1px solid rgba(188, 121, 157, 0.3);
+  border-radius: 18px;
+  background: rgba(255, 251, 253, 0.7);
+  box-shadow: 0 10px 25px rgba(105, 57, 95, 0.08);
+  text-align: left;
+}
+.pin {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  border-radius: 50%;
+  color: #fff;
+  background: #a66389;
+}
+.where-card small,
+.where-card strong {
+  display: block;
+}
+.where-card small {
+  color: #9a6b89;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.where-card strong {
+  font-family: "DM Serif Display", serif;
+  font-size: 1.3rem;
+  font-weight: 400;
+}
+.date-plan {
+  width: min(100%, 310px);
+  padding: 1.1rem 1.35rem;
+  border-radius: 19px;
+  background: rgba(231, 207, 232, 0.55);
+  text-align: left;
+}
+.date-plan p {
+  margin: 0 0 0.5rem;
+  color: #935f82;
+  font-family: "DM Serif Display", serif;
+  font-size: 1.22rem;
+}
+.date-plan li {
+  padding: 0.35rem 0;
+  color: #6f516b;
+  font-size: 0.82rem;
+}
+.date-plan li span {
+  margin-right: 0.4rem;
+  color: #ba7398;
+}
+.closing-note {
+  color: #a06485;
+  font-family: "DM Serif Display", serif;
+  font-size: 1.17rem;
+  font-style: italic;
+}
+.music-toggle {
+  position: fixed;
+  right: max(1rem, env(safe-area-inset-right));
+  bottom: max(1rem, env(safe-area-inset-bottom));
+  z-index: 20;
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  gap: 0.45rem;
+  padding: 0.55rem 0.85rem;
+  border: 1px solid rgba(255, 255, 255, 0.65);
+  border-radius: 999px;
+  color: #71476f;
+  background: rgba(255, 250, 252, 0.77);
+  box-shadow: 0 8px 21px rgba(86, 44, 78, 0.14);
+  backdrop-filter: blur(10px);
+  font-family: Manrope, sans-serif;
+  font-size: 0.67rem;
+  font-weight: 700;
+}
+.music-toggle span:first-child {
+  font-size: 1.05rem;
+}
+.music-toggle.is-playing span:first-child {
+  animation: pulse 1.2s ease-in-out infinite;
+}
+@keyframes pulse {
+  50% {
+    transform: translateY(-2px) scale(1.16);
+  }
+}
+@media (max-width: 380px) {
+  .view {
+    padding-top: 4rem;
+    padding-bottom: 3rem;
+  }
+  h1 {
+    font-size: 2.52rem;
+  }
+  .envelope-button {
+    width: 244px;
+    height: 167px;
+  }
+  .romantic-card {
+    margin-top: 1.2rem;
+    padding-top: 1.8rem;
+  }
+  .romantic-card h1 {
+    font-size: 2.2rem;
+  }
+  .countdown b {
+    font-size: 1.45rem;
+  }
+  .countdown div {
+    min-width: 42px;
+  }
+}
+@media (min-width: 700px) {
+  .view {
+    padding-block: 4rem;
+  }
+  .romantic-card {
+    padding: 2.8rem 2.5rem 2.1rem;
+  }
+}
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
+}

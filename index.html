@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+    <meta name="theme-color" content="#795080">
+    <title>A little invitation for you</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+  </head>
+  <body class="romantic-app"><audio id="bgMusic" autoplay loop preload="auto">
+      <source src="background-music.mp3" type="audio/mpeg">
+    </audio><button class="music-toggle" id="musicToggle" type="button" aria-label="Play background music"><span aria-hidden="true">♫</span><span class="music-label">Our song</span></button>
+    <main class="invitation-shell" aria-live="polite">
+      <div class="sparkles" aria-hidden="true"><i>✦</i><i>♥</i><i>✦</i><i>♥</i><i>✦</i></div>
+      <section class="view view-active" id="welcome" aria-labelledby="welcome-title">
+        <div class="view-content container text-center">
+          <p class="tiny-note">A little something for you</p>
+          <p class="date-note">September 22</p>
+          <h1 id="welcome-title">I have a little<br><em>invitation</em> for you.</h1><button class="envelope-button mx-auto mt-4" id="openEnvelope" type="button" aria-label="Open your invitation"><span class="envelope" aria-hidden="true"><span class="envelope-back"></span><span class="letter"><b>for you</b><small>with all my heart</small></span><span class="envelope-front"></span><span class="envelope-flap"></span><span class="seal">♥</span></span></button>
+          <p class="tap-note mt-4 mb-0">Tap the envelope to open <span>♡</span></p>
+        </div>
+      </section>
+      <section class="view" id="rsvp" aria-labelledby="rsvp-title" hidden>
+        <div class="view-content container text-center">
+          <p class="tiny-note">Will you make a little time for me?</p>
+          <div class="romantic-card mx-auto"><span class="card-heart" aria-hidden="true">♥</span>
+            <h1 id="rsvp-title">Are you available<br>on the 22nd of September?</h1>
+            <p class="soft-copy">I have a beautiful day in mind <br> for just the two of us.</p>
+            <div class="d-flex justify-content-center flex-wrap gap-2 pt-2" id="answerButtons"><button class="answer-button yes-button" id="yesButton" type="button">Yes, I am</button><button class="answer-button no-button" id="noButton" type="button">No</button></div>
+            <p class="joke-note mb-0 mt-3" id="jokeNote" hidden>That must have been a little joke ♡</p>
+          </div>
+        </div>
+      </section>
+      <section class="view" id="celebration" aria-labelledby="celebration-title" hidden>
+        <div class="view-content container text-center">
+          <p class="tiny-note">You said yes!</p>
+          <div class="celebration-hearts" aria-hidden="true">♥ ✦ ♥</div>
+          <h1 id="celebration-title">I would like to invite you...</h1>
+          <p class="celebration-copy mx-auto">I would like to invite you to a day <br>with just the 2 of us.</p>
+          <div class="where-card mx-auto mt-4"><span class="pin" aria-hidden="true">⌖</span>
+            <div><small>Where</small><strong>Makati City</strong></div>
+          </div>
+          <div class="date-plan mx-auto mt-4">
+            <p>Our little plan</p>
+            <ul class="list-unstyled mb-0">
+              <li><span>♡</span> Roam around the city</li>
+              <li><span>♡</span> Photo shoot</li>
+              <li><span>♡</span> Dinner date</li>
+            </ul>
+          </div>
+          <p class="closing-note mt-4 mb-0">I can’t wait to make memories with you.</p>
+        </div>
+        <div class="countdown-wrap mt-4" aria-label="Countdown until September 22 at midnight">
+          <p>Counting down to our little date</p>
+          <div class="countdown" id="countdown">
+            <div><b id="days">00</b><span>days</span></div><i>:</i>
+            <div><b id="hours">00</b><span>hours</span></div><i>:</i>
+            <div><b id="minutes">00</b><span>mins</span></div><i>:</i>
+            <div><b id="seconds">00</b><span>secs</span></div>
+          </div>
+        </div>
+      </section>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
